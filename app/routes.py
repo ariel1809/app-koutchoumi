@@ -4,4 +4,8 @@ main = Blueprint('main', __name__)
 
 @main.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('web/index.html')
+
+@main.route('/dashboard')
+def dashboard():
+    return render_template('dashboard/index.html')
