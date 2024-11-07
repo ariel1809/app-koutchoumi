@@ -5,9 +5,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SeoDash Free Bootstrap Admin Template by Adminmart</title>
-  <link rel="shortcut icon" type="image/png" href="../assets/images/logos/seodashlogo.png" />
-  <link rel="stylesheet" href="../../node_modules/simplebar/dist/simplebar.min.css">
-  <link rel="stylesheet" href="../assets/css/styles.min.css" />
+  <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='dashboard/images/logos/seodashlogo.png') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='node_modules/simplebar/dist/simplebar.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='dashboard/css/styles.min.css') }}">
 </head>
 
 <body>
@@ -20,7 +20,8 @@
       <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
           <a href="./index.html" class="text-nowrap logo-img">
-            <img src="../assets/images/logos/logo-light.svg" alt="" />
+{#            <img src="../assets/images/logos/logo-light.svg" alt="" />#}
+              <img src="{{ url_for('static', filename='dashboard/images/logos/logo-light.svg') }}" alt="">
           </a>
           <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
             <i class="ti ti-x fs-8"></i>
@@ -34,7 +35,7 @@
               <span class="hide-menu">Home</span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./index.html" aria-expanded="false">
+              <a class="sidebar-link" href="{{ url_for('main.dashboard') }}" aria-expanded="false">
                 <span>
                   <iconify-icon icon="solar:home-smile-bold-duotone" class="fs-6"></iconify-icon>
                 </span>
@@ -54,12 +55,12 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-alerts.html" aria-expanded="false">
-                <span>
-                  <iconify-icon icon="solar:danger-circle-bold-duotone" class="fs-6"></iconify-icon>
-                </span>
-                <span class="hide-menu">Alerts</span>
-              </a>
+                <a class="sidebar-link" href="{{ url_for('main.appartment_list') }}" aria-expanded="false">
+                    <span>
+                        <iconify-icon icon="solar:danger-circle-bold-duotone" class="fs-6"></iconify-icon>
+                    </span>
+                    <span class="hide-menu">Appartements</span>
+                </a>
             </li>
             <li class="sidebar-item">
               <a class="sidebar-link" href="./ui-card.html" aria-expanded="false">
@@ -134,7 +135,8 @@
                   class="btn btn-primary fs-2 fw-semibold lh-sm">Buy Pro</a>
               </div>
               <div class="unlimited-access-img">
-                <img src="../assets/images/backgrounds/rocket.png" alt="" class="img-fluid">
+{#                <img src="../assets/images/backgrounds/rocket.png" alt="" class="img-fluid">#}
+                  <img src="{{ url_for('static', filename='dashboard/images/backgrounds/rocket.png') }}" alt="" class="img-fluid">
               </div>
             </div>
           </div>
@@ -164,14 +166,12 @@
           </ul>
           <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
             <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
-              <a href="#" target="_blank"
-                class="btn btn-primary me-2"><span class="d-none d-md-block">Check Pro Version</span> <span class="d-block d-md-none">Pro</span></a>
-              <a href="#" target="_blank"
-                class="btn btn-success"><span class="d-none d-md-block">Download Free </span> <span class="d-block d-md-none">Free</span></a>
+              <a href="{{ url_for('main.index') }}" target="_blank"
+                class="btn btn-primary me-2"><span class="d-none d-md-block">Check to WebSite</span> <span class="d-block d-md-none">Pro</span></a>
               <li class="nav-item dropdown">
                 <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
                   aria-expanded="false">
-                  <img src="../assets/images/profile/user-1.jpg" alt="" width="35" height="35" class="rounded-circle">
+                  <img src="{{ url_for('static', filename='dashboard/images/profile/user-1.jpg') }}" alt="" width="35" height="35" class="rounded-circle">
                 </a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
                   <div class="message-body">
@@ -199,36 +199,54 @@
       <div class="container-fluid">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title fw-semibold mb-4">Alerts</h5>
-            <div class="card mb-0">
-              <div class="card-body p-4">
-                <div class="alert alert-primary" role="alert">
-                  A simple primary alert—check it out!
-                </div>
-                <div class="alert alert-secondary" role="alert">
-                  A simple secondary alert—check it out!
-                </div>
-                <div class="alert alert-success" role="alert">
-                  A simple success alert—check it out!
-                </div>
-                <div class="alert alert-danger" role="alert">
-                  A simple danger alert—check it out!
-                </div>
-                <div class="alert alert-warning" role="alert">
-                  A simple warning alert—check it out!
-                </div>
-                <div class="alert alert-info" role="alert">
-                  A simple info alert—check it out!
-                </div>
-                <div class="alert alert-light" role="alert">
-                  A simple light alert—check it out!
-                </div>
-                <div class="alert alert-dark" role="alert">
-                  A simple dark alert—check it out!
+              <h5 class="card-title">Liste des appartements de Koutchoumi</h5>
+              <div class="table-responsive">
+                <table class="table text-nowrap align-middle mb-0">
+                    <thead>
+                        <tr class="border-2 border-bottom border-primary border-0">
+                            <th scope="col" class="ps-0">Titre</th>
+                            <th scope="col">Prix</th>
+                            <th scope="col">Quartier</th>
+                            <th scope="col">Ville</th>
+                            <th scope="col" class="text-center">Chambres</th>
+                            <th scope="col" class="text-center">Salles de bain</th>
+                            <th scope="col" class="text-center">Vues</th>
+                            <th scope="col" class="text-center">Meublé</th>
+                            <th scope="col" class="text-center">Parking</th>
+                            <th scope="col" class="text-center">Barrière</th>
+                            <th scope="col" class="text-center">Date de publication</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-group-divider">
+                        {% for annonce in annonces %}
+                        <tr>
+                            <td class="ps-0 fw-medium">{{ annonce.titre }}</td>
+                            <td class="fw-medium">{{ annonce.prix }} FCFA</td>
+                            <td>{{ annonce.quartier }}</td>
+                            <td>{{ annonce.ville }}</td>
+                            <td class="text-center fw-medium">{{ annonce.nb_chambres }}</td>
+                            <td class="text-center fw-medium">{{ annonce.nb_salles_de_bain }}</td>
+                            <td class="text-center fw-medium">{{ annonce.nb_vues }}</td>
+                            <td class="text-center fw-medium">
+                                {% if annonce.meuble == 1 %} Oui {% else %} Non {% endif %}
+                            </td>
+                            <td class="text-center fw-medium">
+                                {% if annonce.presence_parking == 1 %} Oui {% else %} Non {% endif %}
+                            </td>
+                            <td class="text-center fw-medium">
+                                {% if annonce.presence_barriere == 1 %} Oui {% else %} Non {% endif %}
+                            </td>
+                            <td class="text-center fw-medium">{{ annonce.date_publication }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                <!-- Pagination -->
+                <div class="d-flex justify-content-center mt-3">
+                    {{ pagination.links }}
                 </div>
               </div>
-            </div>
-          </div>
         </div>
         <div class="py-6 px-6 text-center">
           <p class="mb-0 fs-4">Design and Developed by <a href="https://adminmart.com/" target="_blank"
@@ -238,11 +256,12 @@
       </div>
     </div>
   </div>
-  <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
-  <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="../assets/libs/simplebar/dist/simplebar.js"></script>
-  <script src="../assets/js/sidebarmenu.js"></script>
-  <script src="../assets/js/app.min.js"></script>
+    <script src="{{ url_for('static', filename='dashboard/libs/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='dashboard/libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='dashboard/libs/simplebar/dist/simplebar.js') }}"></script>
+    <script src="{{ url_for('static', filename='dashboard/js/sidebarmenu.js') }}"></script>
+    <script src="{{ url_for('static', filename='dashboard/js/app.min.js') }}"></script>
+
   <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
 </body>
 
