@@ -460,95 +460,41 @@ https://templatemo.com/tm-568-digimedia
 
   <div id="portfolio" class="our-portfolio section">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-5">
-          <div class="section-heading wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.3s">
-            <h6>Our Portofolio</h6>
-            <h4>See Our Recent <em>Projects</em></h4>
-            <div class="line-dec"></div>
-          </div>
+        <div class="row">
+            <div class="col-lg-5">
+                <div class="section-heading wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.3s">
+                    <h6>Our Portfolio</h6>
+                    <h4>See Our Recent <em>Projects</em></h4>
+                    <div class="line-dec"></div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
     <div class="container-fluid wow fadeIn" data-wow-duration="1s" data-wow-delay="0.7s">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="loop owl-carousel">
-            <div class="item">
-              <a href="#">
-                <div class="portfolio-item">
-                <div class="thumb">
-{#                  <img src="images/portfolio-01.jpg" alt="">#}
-                    <img src="{{ url_for('static', filename='web/images/portfolio-01.jpg') }}" alt="">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="loop owl-carousel">
+                    {% for appartement in appartements %}
+                    <div class="item">
+                        <a href="#">
+                            <div class="portfolio-item">
+                                <div class="thumb">
+                                    <!-- Afficher l'image dynamique de l'appartement -->
+                                    <img src="{{ appartement.url }}" alt="">
+                                </div>
+                                <div class="down-content">
+                                    <h4>{{ appartement.titre }}</h4>
+                                    <span>{{ appartement.quartier }} - {{ appartement.ville }}</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    {% endfor %}
                 </div>
-                <div class="down-content">
-                  <h4>Website Builder</h4>
-                  <span>Marketing</span>
-                </div>
-              </div>
-              </a>  
             </div>
-            <div class="item">
-              <a href="#">
-                <div class="portfolio-item">
-                <div class="thumb">
-{#                  <img src="images/portfolio-01.jpg" alt="">#}
-                    <img src="{{ url_for('static', filename='web/images/portfolio-01.jpg') }}" alt="">
-                </div>
-                <div class="down-content">
-                  <h4>Website Builder</h4>
-                  <span>Marketing</span>
-                </div>
-              </div>
-              </a>  
-            </div>
-            <div class="item">
-              <a href="#">
-                <div class="portfolio-item">
-                <div class="thumb">
-{#                  <img src="images/portfolio-02.jpg" alt="">#}
-                    <img src="{{ url_for('static', filename='web/images/portfolio-02.jpg') }}" alt="">
-                </div>
-                <div class="down-content">
-                  <h4>Website Builder</h4>
-                  <span>Marketing</span>
-                </div>
-              </div>
-              </a>  
-            </div>
-            <div class="item">
-              <a href="#">
-                <div class="portfolio-item">
-                <div class="thumb">
-{#                  <img src="images/portfolio-03.jpg" alt="">#}
-                    <img src="{{ url_for('static', filename='web/images/portfolio-03.jpg') }}" alt="">
-                </div>
-                <div class="down-content">
-                  <h4>Website Builder</h4>
-                  <span>Marketing</span>
-                </div>
-              </div>
-              </a>  
-            </div>
-            <div class="item">
-              <a href="#">
-                <div class="portfolio-item">
-                <div class="thumb">
-{#                  <img src="images/portfolio-04.jpg" alt="">#}
-                    <img src="{{ url_for('static', filename='web/images/portfolio-04.jpg') }}" alt="">
-                </div>
-                <div class="down-content">
-                  <h4>Website Builder</h4>
-                  <span>Marketing</span>
-                </div>
-              </div>
-              </a>  
-            </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
+</div>
   
   <div id="blog" class="blog">
     <div class="container">

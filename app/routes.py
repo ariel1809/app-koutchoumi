@@ -1,12 +1,34 @@
 from flask import Blueprint, render_template, request
-from .database import get_db_connection
 from flask_paginate import Pagination, get_page_parameter
+
+from .database import init_db_connection
 
 main = Blueprint('main', __name__)
 
 @main.route('/')
 def index():
-    return render_template('web/index.html')
+    # Connexion à la base de données
+    conn = init_db_connection()
+    cursor = conn.cursor(dictionary=True)
+
+    # Requête SQL pour récupérer les 10 appartements les plus vus
+    query = """
+        SELECT titre, prix, quartier, ville, nb_vues, url
+        FROM annonces
+        ORDER BY nb_vues DESC
+        LIMIT 10
+        """
+    cursor.execute(query)
+
+    # Récupération des résultats
+    appartements = cursor.fetchall()
+
+    # Fermer la connexion
+    cursor.close()
+    conn.close()
+
+    # Renvoyer les résultats au template
+    return render_template('web/index.html', appartements=appartements)
 
 @main.route('/dashboard')
 def dashboard():
@@ -16,7 +38,7 @@ def dashboard():
     offset = (page - 1) * per_page
 
     # Connexion à la base de données
-    conn = get_db_connection()
+    conn = init_db_connection()
     cursor = conn.cursor(dictionary=True)
 
     # Récupérer les données avec la pagination
@@ -45,7 +67,7 @@ def appartment_list():
     offset = (page - 1) * per_page
 
     # Connexion à la base de données
-    conn = get_db_connection()
+    conn = init_db_connection()
     cursor = conn.cursor(dictionary=True)
 
     # Récupérer les données avec la pagination
