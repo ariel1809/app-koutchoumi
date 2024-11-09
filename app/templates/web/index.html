@@ -15,18 +15,13 @@
     <title>App Koutchoumi</title>
 
     <!-- Bootstrap core CSS -->
-{#    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">#}
       <link href="{{ url_for('static', filename='web/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 
 
     <!-- Additional CSS Files -->
-    {#    <link rel="stylesheet" href="css/fontawesome.css">#}
       <link rel="stylesheet" href="{{ url_for('static', filename='web/css/fontawesome.css') }}">
-    {#    <link rel="stylesheet" href="css/templatemo-digimedia-v1.css">#}
       <link rel="stylesheet" href="{{ url_for('static', filename='web/css/templatemo-digimedia-v1.css') }}">
-    {#    <link rel="stylesheet" href="css/animated.css">#}
-      <link rel="stylesheet" href="{{ url_for('static', filename='web/css/animated.css') }}">
-    {#    <link rel="stylesheet" href="css/owl.css">#}
+      <link rel="stylesheet" href="{{ url_for('static', filename='web/css/animated.css') }}">#}
       <link rel="stylesheet" href="{{ url_for('static', filename='web/css/owl.css') }}">
 <!--
 
@@ -83,7 +78,6 @@ https://templatemo.com/tm-568-digimedia
           <nav class="main-nav">
             <!-- ***** Logo Start ***** -->
             <a href="index.html" class="logo">
-{#              <img src="images/logo-v1.png" alt="">#}
             <img src="{{ url_for('static', filename='dashboard/images/logos/app.png') }}" alt="" style="width: 200px; height: auto;">
 
             </a>
@@ -132,7 +126,6 @@ https://templatemo.com/tm-568-digimedia
             </div>
             <div class="col-lg-6">
               <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
-{#                <img src="images/slider-dec.png" alt="">#}
                   <img src="{{ url_for('static', filename='web/images/slider-dec.png') }}" alt="">
               </div>
             </div>
@@ -149,18 +142,17 @@ https://templatemo.com/tm-568-digimedia
           <div class="row">
             <div class="col-lg-6">
               <div class="about-left-image  wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.5s">
-{#                <img src="images/about-dec.png" alt="">#}
                   <img src="{{ url_for('static', filename='web/images/about-dec.png') }}" alt="">
               </div>
             </div>
             <div class="col-lg-6 align-self-center  wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
               <div class="about-right-content">
                 <div class="section-heading">
-                  <h6>About Us</h6>
-                  <h4>Who is DigiMedia <em>Agency</em></h4>
+                  <h6>A Propos</h6>
+                  <h4>Qui est Koutchoumi?</h4>
                   <div class="line-dec"></div>
                 </div>
-                <p>We hope this DigiMedia template is useful for your work. You can use this template for any purpose. You may <a rel="nofollow" href="http://paypal.me/templatemo" target="_blank">contribute a little amount</a> via PayPal to <a href="https://templatemo.com/contact" target="_blank">support TemplateMo</a> in creating new templates regularly.</p>
+                <p>Le site Koutchoumi est un site camerounais qui présente des appartements avec les informations liés à ces appartements. </p>
                 <div class="row">
                   <div class="col-lg-4 col-sm-4">
                     <div class="skill-item first-skill-item wow fadeIn" data-wow-duration="1s" data-wow-delay="0s">
@@ -244,7 +236,6 @@ https://templatemo.com/tm-568-digimedia
                     <div class="first-thumb active">
                       <div class="thumb">
                         <span class="icon">
-{#                            <img src="images/service-icon-01.png" alt="">#}
                             <img src="{{ url_for('static', filename='web/images/service-icon-01.png') }}" alt="">
                         </span>
                         Apartments
@@ -253,7 +244,6 @@ https://templatemo.com/tm-568-digimedia
                     <div>
                       <div class="thumb">                 
                         <span class="icon">
-{#                            <img src="images/service-icon-02.png" alt="">#}
                             <img src="{{ url_for('static', filename='web/images/service-icon-02.png') }}" alt="">
                         </span>
                         Food &amp; Life
@@ -262,7 +252,6 @@ https://templatemo.com/tm-568-digimedia
                     <div>
                       <div class="thumb">                 
                         <span class="icon">
-{#                            <img src="images/service-icon-03.png" alt="">#}
                             <img src="{{ url_for('static', filename='web/images/service-icon-03.png') }}" alt="">
                         </span>
                         Cars
@@ -271,7 +260,6 @@ https://templatemo.com/tm-568-digimedia
                     <div>
                       <div class="thumb">                 
                         <span class="icon">
-{#                            <img src="images/service-icon-04.png" alt="">#}
                             <img src="{{ url_for('static', filename='web/images/service-icon-04.png') }}" alt="">
                         </span>
                         Shopping
@@ -280,7 +268,6 @@ https://templatemo.com/tm-568-digimedia
                     <div class="last-thumb">
                       <div class="thumb">                 
                         <span class="icon">
-{#                            <img src="images/service-icon-01.png" alt="">#}
                             <img src="{{ url_for('static', filename='web/images/service-icon-01.png') }}" alt="">
                         </span>
                         Traveling
@@ -305,8 +292,7 @@ https://templatemo.com/tm-568-digimedia
                               </div>
                             </div>
                             <div class="col-lg-6 align-self-center">
-                              <div class="right-image">
-{#                                <img src="images/services-image.jpg" alt="">#}
+                              <div class="right-image">}
                                   <img src="{{ url_for('static', filename='web/images/services-image.jpg') }}" alt="">
                               </div>
                             </div>
@@ -330,7 +316,6 @@ https://templatemo.com/tm-568-digimedia
                             </div>
                             <div class="col-lg-6 align-self-center">
                               <div class="right-image">
-{#                                <img src="images/services-image-02.jpg" alt="">#}
                                   <img src="{{ url_for('static', filename='web/images/services-image-02.jpg') }}" alt="">
                               </div>
                             </div>
@@ -354,7 +339,6 @@ https://templatemo.com/tm-568-digimedia
                             </div>
                             <div class="col-lg-6 align-self-center">
                               <div class="right-image">
-{#                                <img src="images/services-image-03.jpg" alt="">#}
                                   <img src="{{ url_for('static', filename='web/images/services-image-03.jpg') }}" alt="">
                               </div>
                             </div>
@@ -378,7 +362,6 @@ https://templatemo.com/tm-568-digimedia
                             </div>
                             <div class="col-lg-6 align-self-center">
                               <div class="right-image">
-{#                                <img src="images/services-image-04.jpg" alt="">#}
                                   <img src="{{ url_for('static', filename='web/images/services-image-04.jpg') }}" alt="">
                               </div>
                             </div>
@@ -402,7 +385,6 @@ https://templatemo.com/tm-568-digimedia
                             </div>
                             <div class="col-lg-6 align-self-center">
                               <div class="right-image">
-{#                                <img src="images/services-image.jpg" alt="">#}
                                   <img src="{{ url_for('static', filename='web/images/services-image.jpg') }}" alt="">
                               </div>
                             </div>
@@ -602,7 +584,6 @@ https://templatemo.com/tm-568-digimedia
                 <div class="post-item">
                   <div class="thumb">
                     <a href="#">
-{#                        <img src="images/blog-post-02.jpg" alt="">#}
                         <img src="{{ url_for('static', filename='web/images/blog-post-02.jpg') }}" alt="">
                     </a>
                   </div>
@@ -618,7 +599,6 @@ https://templatemo.com/tm-568-digimedia
                 <div class="post-item">
                   <div class="thumb">
                     <a href="#">
-{#                        <img src="images/blog-post-03.jpg" alt="">#}
                         <img src="{{ url_for('static', filename='web/images/blog-post-03.jpg') }}" alt="">
                     </a>
                   </div>
@@ -634,7 +614,6 @@ https://templatemo.com/tm-568-digimedia
                 <div class="post-item last-post-item">
                   <div class="thumb">
                     <a href="#">
-{#                        <img src="assets/images/blog-post-04.jpg" alt="">#}
                         <img src="{{ url_for('static', filename='web/images/blog-post-04.jpg') }}" alt="">
                     </a>
                   </div>
@@ -668,7 +647,6 @@ https://templatemo.com/tm-568-digimedia
             <div class="row">
               <div class="col-lg-12">
                 <div class="contact-dec">
-{#                  <img src="images/contact-dec.png" alt="">#}
                     <img src="{{ url_for('static', filename='web/images/contact-dec.png') }}" alt="">
                 </div>
               </div>
@@ -683,7 +661,6 @@ https://templatemo.com/tm-568-digimedia
                     <div class="col-lg-4">
                       <div class="info-post">
                         <div class="icon">
-{#                          <img src="images/phone-icon.png" alt="">#}
                             <img src="{{ url_for('static', filename='web/images/phone-icon.png') }}" alt="">
                           <a href="#">655 45 22 97</a>
                         </div>
@@ -692,7 +669,6 @@ https://templatemo.com/tm-568-digimedia
                     <div class="col-lg-4">
                       <div class="info-post">
                         <div class="icon">
-{#                          <img src="images/email-icon.png" alt="">#}
                             <img src="{{ url_for('static', filename='web/images/email-icon.png') }}" alt="">
                           <a href="#">steve.kuetche@institutsaintjean.org</a>
                         </div>
@@ -701,7 +677,6 @@ https://templatemo.com/tm-568-digimedia
                     <div class="col-lg-4">
                       <div class="info-post">
                         <div class="icon">
-{#                          <img src="images/location-icon.png" alt="">#}
                             <img src="{{ url_for('static', filename='web/images/location-icon.png') }}" alt="">
                           <a href="#">Yaoundé, Simbock</a>
                         </div>
@@ -751,17 +726,11 @@ https://templatemo.com/tm-568-digimedia
 
 
   <!-- Scripts -->
-{#  <script src="jquery/jquery.min.js"></script>#}
   <script src="{{ url_for('static', filename='web/jquery/jquery.min.js') }}"></script>
-{#  <script src="bootstrap/js/bootstrap.bundle.min.js"></script>#}
   <script src="{{ url_for('static', filename='web/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-{#  <script src="js/owl-carousel.js"></script>#}
   <script src="{{ url_for('static', filename='web/js/owl-carousel.js') }}"></script>
-{#  <script src="js/animation.js"></script>#}
   <script src="{{ url_for('static', filename='web/js/animation.js') }}"></script>
-{#  <script src="js/imagesloaded.js"></script>#}
   <script src="{{ url_for('static', filename='web/js/imagesloaded.js') }}"></script>
-{#  <script src="js/custom.js"></script>#}
 <script src="{{ url_for('static', filename='web/js/custom.js') }}"></script>
 
 </body>

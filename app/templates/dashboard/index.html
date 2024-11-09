@@ -380,18 +380,18 @@
 
   <script>
     // Récupérer les données du backend Flask
-    const labels = {{ popular_labels | tojson }};
-    const values = {{ popular_values | tojson }};
+    const labels2 = {{ popular_labels | tojson }};
+    const values2 = {{ popular_values | tojson }};
 
     // Créer le graphique en barres avec Chart.js
-    const ctx = document.getElementById('popularApartmentsChart').getContext('2d');
-    const appartementChart = new Chart(ctx, {
+    const ctx2 = document.getElementById('popularApartmentsChart').getContext('2d');
+    const popularApartmentsChart = new Chart(ctx2, {
         type: 'bar',
         data: {
-            labels: labels, // Noms des appartements
+            labels: labels2, // Noms des appartements
             datasets: [{
                 label: 'Nombre de vues',
-                data: values, // Nombre de vues pour chaque appartement
+                data: values2, // Nombre de vues pour chaque appartement
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.6)',
                     'rgba(54, 162, 235, 0.6)',
