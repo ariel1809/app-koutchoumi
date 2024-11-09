@@ -136,7 +136,7 @@ class Pie {
       }
     }
 
-    // on small chart size after few count of resizes browser window donutSize can be negative
+    // on small chart.js size after few count of resizes browser window donutSize can be negative
     if (this.donutSize < 0) {
       this.donutSize = 0
     }
@@ -872,7 +872,7 @@ class Pie {
       g.add(elValue)
     }
 
-    // for a multi-series circle chart, we need to show total value instead of first series labels
+    // for a multi-series circle chart.js, we need to show total value instead of first series labels
 
     return g
   }

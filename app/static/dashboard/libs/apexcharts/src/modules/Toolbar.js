@@ -415,7 +415,7 @@ export default class Toolbar {
     }
 
     if (!w.config.chart.group) {
-      // if chart in a group, prevent yaxis update here
+      // if chart.js in a group, prevent yaxis update here
       // fix issue #650
       options.yaxis = yaxis
     }
@@ -489,7 +489,7 @@ export default class Toolbar {
 
       if (typeof w.config.chart.events.beforeResetZoom === 'function') {
         // here, user get an option to control xaxis and yaxis when resetZoom is called
-        // at this point, whatever is returned from w.config.chart.events.beforeResetZoom
+        // at this point, whatever is returned from w.config.chart.js.events.beforeResetZoom
         // is set as the new xaxis/yaxis min/max
         const resetZoomRange = w.config.chart.events.beforeResetZoom(ch, w)
 

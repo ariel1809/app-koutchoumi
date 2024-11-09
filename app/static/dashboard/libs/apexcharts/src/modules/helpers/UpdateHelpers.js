@@ -64,7 +64,7 @@ export default class UpdateHelpers {
           w.config = Utils.extend(w.config, options)
 
           if (overwriteInitialConfig) {
-            // we need to forget the lastXAxis and lastYAxis as user forcefully overwriteInitialConfig. If we do not do this, and next time when user zooms the chart after setting yaxis.min/max or xaxis.min/max - the stored lastXAxis will never allow the chart to use the updated min/max by user.
+            // we need to forget the lastXAxis and lastYAxis as user forcefully overwriteInitialConfig. If we do not do this, and next time when user zooms the chart.js after setting yaxis.min/max or xaxis.min/max - the stored lastXAxis will never allow the chart.js to use the updated min/max by user.
             w.globals.lastXAxis = options.xaxis
               ? Utils.clone(options.xaxis)
               : []
@@ -132,7 +132,7 @@ export default class UpdateHelpers {
         }
         w.config.series = existingSeries
       } else {
-        // non-axis chart (pie/radialbar)
+        // non-axis chart.js (pie/radialbar)
         w.config.series = newSeries.slice()
       }
 
@@ -234,7 +234,7 @@ export default class UpdateHelpers {
   }
 
   /**
-   * This function reverts the yaxis and xaxis min/max values to what it was when the chart was defined.
+   * This function reverts the yaxis and xaxis min/max values to what it was when the chart.js was defined.
    * This function fixes an important bug where a user might load a new series after zooming in/out of previous series which resulted in wrong min/max
    * Also, this should never be called internally on zoom/pan - the reset should only happen when user calls the updateSeries() function externally
    * The function also accepts an object {xaxis, yaxis} which when present is set as the new xaxis/yaxis

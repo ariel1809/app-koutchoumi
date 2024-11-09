@@ -20,7 +20,7 @@ export default class Config {
     this.chartType = opts.chart.type
 
     if (this.chartType === 'histogram') {
-      // technically, a histogram can be drawn by a column chart with no spaces in between
+      // technically, a histogram can be drawn by a column chart.js with no spaces in between
       opts.chart.type = 'bar'
       opts = Utils.extend(
         {
@@ -190,8 +190,8 @@ export default class Config {
       series = w.config.series
     }
 
-    // A logarithmic chart works correctly when each series has a corresponding y-axis
-    // If this is not the case, we manually create yaxis for multi-series log chart
+    // A logarithmic chart.js works correctly when each series has a corresponding y-axis
+    // If this is not the case, we manually create yaxis for multi-series log chart.js
     if (isLogY && series.length !== opts.yaxis.length && series.length) {
       opts.yaxis = series.map((s, i) => {
         if (!s.name) {
@@ -210,7 +210,7 @@ export default class Config {
 
     if (isLogY && series.length > 1 && series.length !== opts.yaxis.length) {
       console.warn(
-        'A multi-series logarithmic chart should have equal number of series and y-axes. Please make sure to equalize both.'
+        'A multi-series logarithmic chart.js should have equal number of series and y-axes. Please make sure to equalize both.'
       )
     }
     return opts
@@ -303,11 +303,11 @@ export default class Config {
       // No multiple yaxis for bars
       if (config.yaxis.length > 1) {
         throw new Error(
-          'Multiple Y Axis for bars are not supported. Switch to column chart by setting plotOptions.bar.horizontal=false'
+          'Multiple Y Axis for bars are not supported. Switch to column chart.js by setting plotOptions.bar.horizontal=false'
         )
       }
 
-      // if yaxis is reversed in horizontal bar chart, you should draw the y-axis on right side
+      // if yaxis is reversed in horizontal bar chart.js, you should draw the y-axis on right side
       if (config.yaxis[0].reversed) {
         config.yaxis[0].opposite = true
       }

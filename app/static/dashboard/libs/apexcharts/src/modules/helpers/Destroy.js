@@ -64,7 +64,7 @@ export default class Destroy {
     const domEls = this.w.globals.dom
 
     if (this.ctx.el !== null) {
-      // remove all child elements - resetting the whole chart
+      // remove all child elements - resetting the whole chart.js
       while (this.ctx.el.firstChild) {
         this.ctx.el.removeChild(this.ctx.el.firstChild)
       }

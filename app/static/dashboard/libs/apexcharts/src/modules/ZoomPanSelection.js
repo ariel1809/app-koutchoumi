@@ -454,7 +454,7 @@ export default class ZoomPanSelection extends Toolbar {
       typeof w.config.chart.events.selection === 'function' &&
       w.globals.selectionEnabled
     ) {
-      // a small debouncer is required when resizing to avoid freezing the chart
+      // a small debouncer is required when resizing to avoid freezing the chart.js
       clearTimeout(this.w.globals.selectionResizeTimer)
       this.w.globals.selectionResizeTimer = window.setTimeout(() => {
         const gridRectDim = this.gridRect.getBoundingClientRect()
@@ -598,7 +598,7 @@ export default class ZoomPanSelection extends Toolbar {
         }
 
         if (!w.config.chart.group) {
-          // if chart in a group, prevent yaxis update here
+          // if chart.js in a group, prevent yaxis update here
           // fix issue #650
           options.yaxis = yaxis
         }
@@ -752,7 +752,7 @@ export default class ZoomPanSelection extends Toolbar {
     }
 
     if (!w.config.chart.group) {
-      // if chart in a group, prevent yaxis update here
+      // if chart.js in a group, prevent yaxis update here
       // fix issue #650
       options.yaxis = yaxis
     }

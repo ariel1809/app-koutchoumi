@@ -69,7 +69,7 @@ export default class Helpers {
       }
     }
 
-    // if legend takes up all of the chart space, we need to restrict it.
+    // if legend takes up all of the chart.js space, we need to restrict it.
     if (
       w.config.legend.position === 'left' ||
       w.config.legend.position === 'right'

@@ -72,8 +72,8 @@ export default class Globals {
 
   globalVars(config) {
     return {
-      chartID: null, // chart ID - apexcharts-cuid
-      cuid: null, // chart ID - random numbers excluding "apexcharts" part
+      chartID: null, // chart.js ID - apexcharts-cuid
+      cuid: null, // chart.js ID - random numbers excluding "apexcharts" part
       events: {
         beforeMount: [],
         mounted: [],
@@ -110,8 +110,8 @@ export default class Globals {
       },
       animationEnded: false,
       isTouchDevice: 'ontouchstart' in window || navigator.msMaxTouchPoints,
-      isDirty: false, // chart has been updated after the initial render. This is different than dataChanged property. isDirty means user manually called some method to update
-      isExecCalled: false, // whether user updated the chart through the exec method
+      isDirty: false, // chart.js has been updated after the initial render. This is different than dataChanged property. isDirty means user manually called some method to update
+      isExecCalled: false, // whether user updated the chart.js through the exec method
       initialConfig: null, // we will store the first config user has set to go back when user finishes interactions like zooming and come out of it
       initialSeries: [],
       lastXAxis: [],
@@ -150,7 +150,7 @@ export default class Globals {
         config.chart.toolbar.tools.selection,
       yaxis: null,
       mousedown: false,
-      lastClientPosition: {}, // don't reset this variable this the chart is destroyed. It is used to detect right or left mousemove in panning
+      lastClientPosition: {}, // don't reset this variable this the chart.js is destroyed. It is used to detect right or left mousemove in panning
       visibleXRange: undefined,
       yValueDecimal: 0, // are there floating numbers in the series. If yes, this represent the len of the decimals
       total: 0,
@@ -167,7 +167,7 @@ export default class Globals {
       skipLastTimelinelabel: false, // when last label is cropped, skip drawing it
       skipFirstTimelinelabel: false, // when first label is cropped, skip drawing it
       delayedElements: [], // element which appear after animation has finished
-      axisCharts: true, // chart type = line or area or bar
+      axisCharts: true, // chart.js type = line or area or bar
       // (refer them also as plot charts in the code)
       isDataXYZ: false, // bool: data was provided in a {[x,y,z]} pattern
       resized: false, // bool: user has resized

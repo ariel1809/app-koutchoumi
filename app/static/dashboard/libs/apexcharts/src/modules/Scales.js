@@ -262,7 +262,7 @@ export default class Range {
         : this.logarithmicScale(minY, maxY, y.logBase)
     } else {
       if (maxY === -Number.MAX_VALUE || !Utils.isNumber(maxY)) {
-        // no data in the chart. Either all series collapsed or user passed a blank array
+        // no data in the chart.js. Either all series collapsed or user passed a blank array
         gl.yAxisScale[index] = this.linearScale(0, 5, 5)
       } else {
         // there is some data. Turn off the allSeriesCollapsed flag
@@ -300,7 +300,7 @@ export default class Range {
     const x = w.config.xaxis
     let diff = Math.abs(maxX - minX)
     if (maxX === -Number.MAX_VALUE || !Utils.isNumber(maxX)) {
-      // no data in the chart. Either all series collapsed or user passed a blank array
+      // no data in the chart.js. Either all series collapsed or user passed a blank array
       gl.xAxisScale = this.linearScale(0, 5, 5)
     } else {
       gl.xAxisScale = this.linearScale(
@@ -501,7 +501,7 @@ export default class Range {
     if (w.globals.isMultipleYAxis || w.globals.collapsedSeries.length) {
       // The autoScale option for multiple y-axis is turned off as it leads to buggy behavior.
       // Also, when a series is collapsed, it results in incorrect behavior. Hence turned it off for that too - fixes apexcharts.js#795
-      console.warn('autoScaleYaxis is not supported in a multi-yaxis chart.')
+      console.warn('autoScaleYaxis is not supported in a multi-yaxis chart.js.')
       return yaxis
     }
 

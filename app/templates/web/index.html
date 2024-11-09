@@ -503,33 +503,98 @@ https://templatemo.com/tm-568-digimedia
         <div class="col-lg-4 offset-lg-4  wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.3s">
           <div class="section-heading">
             <h6>Recent News</h6>
-            <h4>Check Our Blog <em>Posts</em></h4>
+            <h4>Nos recommandations</h4>
             <div class="line-dec"></div>
           </div>
         </div>
         <div class="col-lg-6 show-up wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">
-          <div class="blog-post">
-            <div class="thumb">
-              <a href="#">
-{#                  <img src="images/blog-post-01.jpg" alt="">#}
-                  <img src="{{ url_for('static', filename='web/images/blog-post-01.jpg') }}" alt="">
-              </a>
+            <div class="blog-post">
+                <div class="thumb">
+                </div>
+                <div class="down-content">
+                    <a href="#">
+                        <h4>Formulaire de renseignement sur un appartement</h4>
+                    </a>
+                    <p>Veuillez renseigner les informations sur l'appartement :</p>
+                    <form action="/submit-apartment" method="POST">
+                        <!-- Salaire -->
+                        <div class="form-group mb-3">
+                            <label for="salary">Salaire (en FCFA) :</label>
+                            <input type="number" id="salary" name="salary" class="form-control" required>
+                        </div>
+
+                        <!-- Nombre de chambres -->
+                        <div class="form-group mb-3">
+                            <label for="rooms">Nombre de chambres :</label>
+                            <select id="rooms" name="rooms" class="form-control" required>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
+                        </div>
+
+                        <!-- Nombre de salles de bain -->
+                        <div class="form-group mb-3">
+                            <label for="bathrooms">Nombre de salles de bain :</label>
+                            <select id="bathrooms" name="bathrooms" class="form-control" required>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </div>
+
+                        <!-- Ville de résidence -->
+                        <div class="form-group mb-3">
+                            <label for="city">Ville de résidence :</label>
+                            <select id="city" name="city" class="form-control" required>
+                                <option value="Yaoundé">Yaoundé</option>
+                                <option value="Douala">Douala</option>
+                            </select>
+                        </div>
+
+                        <!-- Quartier de résidence -->
+                        <div class="form-group mb-3" id="neighborhood-group">
+                            <label for="neighborhood">Quartier de résidence :</label>
+                            <select id="neighborhood" name="neighborhood" class="form-control" required>
+                                <!-- Les quartiers seront ajoutés dynamiquement -->
+                            </select>
+                        </div>
+
+                        <!-- Meublé -->
+                        <div class="form-group mb-3">
+                            <label for="furnished">L'appartement est-il meublé ?</label><br>
+                            <input type="radio" id="furnished-yes" name="furnished" value="1">
+                            <label for="furnished-yes">Oui</label><br>
+                            <input type="radio" id="furnished-no" name="furnished" value="0">
+                            <label for="furnished-no">Non</label>
+                        </div>
+
+                        <!-- Parking -->
+                        <div class="form-group mb-3">
+                            <label for="parking">L'appartement dispose-t-il d'un parking ?</label><br>
+                            <input type="radio" id="parking-yes" name="parking" value="1">
+                            <label for="parking-yes">Oui</label><br>
+                            <input type="radio" id="parking-no" name="parking" value="0">
+                            <label for="parking-no">Non</label>
+                        </div>
+
+                        <!-- Barrière -->
+                        <div class="form-group mb-3">
+                            <label for="barrier">L'appartement dispose-t-il d'une barrière ?</label><br>
+                            <input type="radio" id="barrier-yes" name="barrier" value="1">
+                            <label for="barrier-yes">Oui</label><br>
+                            <input type="radio" id="barrier-no" name="barrier" value="0">
+                            <label for="barrier-no">Non</label>
+                        </div>
+
+                        <!-- Bouton Soumettre -->
+                        <div class="border-first-button">
+                            <button type="submit" class="btn btn-primary">Soumettre</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="down-content">
-              <span class="category">SEO Analysis</span>
-              <span class="date">03 August 2021</span>
-              <a href="#"><h4>Lorem Ipsum Dolor Sit Amet, Consectetur Adelore
-                Eiusmod Tempor Incididunt</h4></a>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doers itii eiumod deis tempor incididunt ut labore.</p>
-              <span class="author">
-{#                  <img src="images/author-post.jpg" alt="">#}
-                  <img src="{{ url_for('static', filename='web/images/author-post.jpg') }}" alt="">
-                  By: Andrea Mentuzi
-              </span>
-              <div class="border-first-button"><a href="#">Discover More</a></div>
             </div>
-          </div>
-        </div>
         <div class="col-lg-6 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">
           <div class="blog-posts">
             <div class="row">

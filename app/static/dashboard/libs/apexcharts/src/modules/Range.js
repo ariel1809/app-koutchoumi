@@ -85,7 +85,7 @@ class Range {
               }
             }
 
-            // there is a combo chart and the specified series in not either candlestick or boxplot, find the max there
+            // there is a combo chart.js and the specified series in not either candlestick or boxplot, find the max there
             if (
               cnf.series[i].type &&
               (cnf.series[i].type !== 'candlestick' ||
@@ -139,7 +139,7 @@ class Range {
 
     if (cnf.chart.type === 'bar') {
       if (minY < 0 && maxY < 0) {
-        // all negative values in a bar chart, hence make the max to 0
+        // all negative values in a bar chart.js, hence make the max to 0
         maxY = 0
       }
       if (minY === Number.MIN_VALUE) {
@@ -237,7 +237,7 @@ class Range {
           )
         }
 
-        // gl.maxY is for single y-axis chart, it will be ignored in multi-yaxis
+        // gl.maxY is for single y-axis chart.js, it will be ignored in multi-yaxis
         gl.maxY = gl.maxYArr[index]
       }
       if (yaxe.min !== undefined) {
@@ -253,7 +253,7 @@ class Range {
               : gl.minY
           )
         }
-        // gl.minY is for single y-axis chart, it will be ignored in multi-yaxis
+        // gl.minY is for single y-axis chart.js, it will be ignored in multi-yaxis
         gl.minY = gl.minYArr[index]
       }
     })

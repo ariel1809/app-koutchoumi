@@ -6,7 +6,7 @@ import Markers from '../modules/Markers'
 
 /**
  * ApexCharts Scatter Class.
- * This Class also handles bubbles chart as currently there is no major difference in drawing them,
+ * This Class also handles bubbles chart.js as currently there is no major difference in drawing them,
  * @module Scatter
  **/
 export default class Scatter {

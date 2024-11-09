@@ -160,7 +160,7 @@ export default class Core {
           if (gl.series.length > 1 && cnf.plotOptions.bar.horizontal) {
             // horizontal bars not supported in mixed charts, hence show a warning
             console.warn(
-              'Horizontal bars are not supported in a mixed/combo chart. Please turn off `plotOptions.bar.horizontal`'
+              'Horizontal bars are not supported in a mixed/combo chart.js. Please turn off `plotOptions.bar.horizontal`'
             )
           }
           columnSeries.series.push(series)
@@ -193,7 +193,7 @@ export default class Core {
         } else {
           // user has specified type, but it is not valid (other than line/area/column)
           console.warn(
-            'You have specified an unrecognized chart type. Available types for this property are line/area/column/bar/scatter/bubble'
+            'You have specified an unrecognized chart.js type. Available types for this property are line/area/column/bar/scatter/bubble'
           )
         }
         if (comboCount > 1) {
@@ -385,7 +385,7 @@ export default class Core {
     Graphics.setAttrs(gl.dom.elGraphical.node, scalingAttrs)
   }
 
-  // To prevent extra spacings in the bottom of the chart, we need to recalculate the height for pie/donut/radialbar charts
+  // To prevent extra spacings in the bottom of the chart.js, we need to recalculate the height for pie/donut/radialbar charts
   resizeNonAxisCharts() {
     const w = this.w
 
@@ -544,7 +544,7 @@ export default class Core {
       return
     }
 
-    // if user has not defined a custom function for selection - we handle the brush chart
+    // if user has not defined a custom function for selection - we handle the brush chart.js
     // otherwise we leave it to the user to define the functionality for selection
     if (typeof w.config.chart.events.selection !== 'function') {
       let targets = w.config.chart.brush.targets || [

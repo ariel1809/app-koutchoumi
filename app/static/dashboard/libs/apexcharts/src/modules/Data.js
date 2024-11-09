@@ -204,7 +204,7 @@ export default class Data {
 
     gl.seriesRangeBar.push(range.rangeUniques)
 
-    // check for overlaps to avoid clashes in a timeline chart
+    // check for overlaps to avoid clashes in a timeline chart.js
     gl.seriesRangeBar.forEach((sr, si) => {
       if (sr) {
         sr.forEach((sarr, sarri) => {
@@ -574,7 +574,7 @@ export default class Data {
     if (gl.axisCharts) {
       if (gl.series.length > 0) {
         if (this.isFormatXY()) {
-          // in case there is a combo chart (boxplot/scatter)
+          // in case there is a combo chart.js (boxplot/scatter)
           // and there are duplicated x values, we need to eliminate duplicates
           const seriesDataFiltered = cnf.series.map((serie, s) => {
             return serie.data.filter(

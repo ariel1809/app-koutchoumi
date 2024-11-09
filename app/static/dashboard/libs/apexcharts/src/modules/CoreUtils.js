@@ -71,7 +71,7 @@ class CoreUtils {
   // get total of the all values inside all series
   getSeriesTotalByIndex(index = null) {
     if (index === null) {
-      // non-plot chart types - pie / donut / circle
+      // non-plot chart.js types - pie / donut / circle
       return this.w.config.series.reduce((acc, cur) => acc + cur, 0)
     } else {
       // axis charts - supporting multiple series
@@ -82,7 +82,7 @@ class CoreUtils {
   isSeriesNull(index = null) {
     let r = []
     if (index === null) {
-      // non-plot chart types - pie / donut / circle
+      // non-plot chart.js types - pie / donut / circle
       r = this.w.config.series.filter((d) => d !== null)
     } else {
       // axis charts - supporting multiple series
@@ -276,7 +276,7 @@ class CoreUtils {
       baseLineY.push(-gl.minY / yRatio[0])
 
       if (gl.minY !== Number.MIN_VALUE && Math.abs(gl.minY) !== 0) {
-        baseLineInvertedY = -gl.minY / invertedYRatio // this is for bar chart
+        baseLineInvertedY = -gl.minY / invertedYRatio // this is for bar chart.js
         baseLineX = gl.minX / xRatio
       }
     }

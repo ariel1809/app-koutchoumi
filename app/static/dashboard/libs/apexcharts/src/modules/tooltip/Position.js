@@ -311,7 +311,7 @@ export default class Position {
         let pointArr = pointsArr[p]
 
         if (w.globals.comboCharts) {
-          // in a combo chart, if column charts are present, markers will not match with the number of series, hence this patch to push a null value in points array
+          // in a combo chart.js, if column charts are present, markers will not match with the number of series, hence this patch to push a null value in points array
           if (typeof pointArr === 'undefined') {
             // nodelist to array
             points.splice(p, 0, null)

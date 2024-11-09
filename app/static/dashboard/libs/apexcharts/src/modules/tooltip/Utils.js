@@ -89,7 +89,7 @@ export default class Utils {
 
     // if X axis type is not category and tooltip is not shared, then we need to find the cursor position and get the nearest value
     if (w.globals.isXNumeric) {
-      // Change origin of cursor position so that we can compute the relative nearest point to the cursor on our chart
+      // Change origin of cursor position so that we can compute the relative nearest point to the cursor on our chart.js
       // we only need to scale because all points are relative to the bounds.left and bounds.top => origin is virtually (0, 0)
       const chartGridEl = this.ttCtx.getElGrid()
       const chartGridElBoundingRect = chartGridEl.getBoundingClientRect()

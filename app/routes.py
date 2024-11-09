@@ -1,9 +1,41 @@
 from flask import Blueprint, render_template, request
 from flask_paginate import Pagination, get_page_parameter
+import pandas as pd
 
 from .database import init_db_connection
 
 main = Blueprint('main', __name__)
+
+def get_apartment_counts(connection):
+    """Retourne le nombre total d'appartements, ainsi que ceux de Douala et de Yaoundé."""
+    cursor = connection.cursor()
+    try:
+        # Récupérer le nombre total d'appartements
+        cursor.execute("SELECT COUNT(*) FROM annonces")
+        total = cursor.fetchone()[0]
+
+        # Récupérer le nombre d'appartements pour Douala
+        cursor.execute("SELECT COUNT(*) FROM annonces WHERE ville = 'Douala'")
+        douala_count = cursor.fetchone()[0]
+
+        # Récupérer le nombre d'appartements pour Yaoundé
+        cursor.execute("SELECT COUNT(*) FROM annonces WHERE ville = 'Yaoundé'")
+        yaounde_count = cursor.fetchone()[0]
+
+        # Nombre d'appartements meublés
+        cursor.execute("SELECT COUNT(*) FROM annonces WHERE meuble = 1")
+        meuble_count = cursor.fetchone()[0]
+
+        return {
+            'total': total,
+            'douala': douala_count,
+            'yaounde': yaounde_count,
+            'meuble': meuble_count
+        }
+    finally:
+        cursor.close()
+
+
 
 @main.route('/')
 def index():
@@ -22,6 +54,7 @@ def index():
 
     # Récupération des résultats
     appartements = cursor.fetchall()
+
 
     # Fermer la connexion
     cursor.close()
@@ -46,9 +79,26 @@ def dashboard():
     cursor.execute(query, (per_page, offset))
     annonces = cursor.fetchall()
 
+    # 5. Récupérer les noms des colonnes
+    column_names = [desc[0] for desc in cursor.description]
+
+    # 6. Convertir les résultats en DataFrame (dataset)
+    df = pd.DataFrame(annonces, columns=column_names)
+
+    # Calculer la fréquence des appartements en fonction du nombre de chambres
+    chambre_counts = df['nb_chambres'].value_counts().sort_index()
+
+    # Préparer les labels et les données pour le graphique
+    indexs = df['nb_chambres'].value_counts().sort_index().index.to_list()
+    values = df['nb_chambres'].value_counts().sort_index().to_list()
+    labels = [str(index) + "chambre" for index in indexs]
+
     # Compter le nombre total d'annonces pour la pagination
     cursor.execute("SELECT COUNT(*) FROM annonces")
     total = cursor.fetchone()['COUNT(*)']
+
+    # Obtenir le nombre total d'appartements
+    apartment_counts = get_apartment_counts(conn)
 
     cursor.close()
     conn.close()
@@ -57,7 +107,7 @@ def dashboard():
     pagination = Pagination(page=page, per_page=per_page, total=total, css_framework='bootstrap5')
 
     # Envoyer les données et la pagination au template
-    return render_template('dashboard/index.html', annonces=annonces, pagination=pagination)
+    return render_template('dashboard/index.html', annonces=annonces, pagination=pagination, apartment_counts=apartment_counts, labels=labels, values=values)
 
 @main.route('/list-apartments')
 def appartment_list():

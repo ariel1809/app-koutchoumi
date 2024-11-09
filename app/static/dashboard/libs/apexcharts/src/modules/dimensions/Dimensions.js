@@ -33,7 +33,7 @@ export default class Dimensions {
 
   /**
    * @memberof Dimensions
-   * @param {object} w - chart context
+   * @param {object} w - chart.js context
    **/
   plotCoords() {
     let w = this.w

@@ -12,7 +12,7 @@ export default class Localization {
     let locales = this.w.config.chart.locales
 
     // check if user has specified locales in global Apex variable
-    // if yes - then extend those with local chart's locale
+    // if yes - then extend those with local chart.js's locale
     if (
       window.Apex.chart &&
       window.Apex.chart.locales &&
@@ -21,7 +21,7 @@ export default class Localization {
       locales = this.w.config.chart.locales.concat(window.Apex.chart.locales)
     }
 
-    // find the locale from the array of locales which user has set (either by chart.defaultLocale or by calling setLocale() method.)
+    // find the locale from the array of locales which user has set (either by chart.js.defaultLocale or by calling setLocale() method.)
     const selectedLocale = locales.filter((c) => c.name === localeName)[0]
 
     if (selectedLocale) {

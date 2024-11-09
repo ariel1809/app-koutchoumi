@@ -54,7 +54,7 @@ export default class Helpers {
 
     let dataPoints = w.globals.dataPoints
     if (this.barCtx.isRangeBar) {
-      // timeline rangebar chart
+      // timeline rangebar chart.js
       dataPoints = w.globals.labels.length
     }
 
@@ -371,7 +371,7 @@ export default class Helpers {
 
   /** getRoundedBars draws border radius for bars/columns
    * @memberof Bar
-   * @param {object} w - chart context
+   * @param {object} w - chart.js context
    * @param {object} opts - consists several properties like barHeight/barWidth
    * @param {array} series - global primary series
    * @param {int} i - current iterating series's index

@@ -45,7 +45,7 @@ class Bar {
    * @memberof Bar
    * @param {array} series - user supplied series values
    * @param {int} seriesIndex - the index by which series will be drawn on the svg
-   * @return {node} element which is supplied to parent chart draw method for appending
+   * @return {node} element which is supplied to parent chart.js draw method for appending
    **/
   draw(series, seriesIndex) {
     let w = this.w

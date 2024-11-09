@@ -31,10 +31,10 @@ class BarStacked extends Bar {
 
     this.totalItems = 0
 
-    this.prevY = [] // y position on chart
-    this.prevX = [] // x position on chart
-    this.prevYF = [] // y position including shapes on chart
-    this.prevXF = [] // x position including shapes on chart
+    this.prevY = [] // y position on chart.js
+    this.prevX = [] // x position on chart.js
+    this.prevYF = [] // y position including shapes on chart.js
+    this.prevXF = [] // x position including shapes on chart.js
     this.prevYVal = [] // y values (series[i][j]) in columns
     this.prevXVal = [] // x values (series[i][j]) in bars
 

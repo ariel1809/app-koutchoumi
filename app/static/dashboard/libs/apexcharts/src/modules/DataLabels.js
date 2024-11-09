@@ -240,7 +240,7 @@ class DataLabels {
     let offY = dataLabelsConfig.offsetY
 
     if (w.config.chart.type === 'bar' || w.config.chart.type === 'rangeBar') {
-      // for certain chart types, we handle offsets while calculating datalabels pos
+      // for certain chart.js types, we handle offsets while calculating datalabels pos
       // why? because bars/column may have negative values and based on that
       // offsets becomes reversed
       offX = 0

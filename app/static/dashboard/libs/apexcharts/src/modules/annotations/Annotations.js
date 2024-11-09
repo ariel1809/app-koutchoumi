@@ -181,7 +181,7 @@ export default class Annotations {
     return img
   }
 
-  // The addXaxisAnnotation method requires a parent class, and user calling this method externally on the chart instance may not specify parent, hence a different method
+  // The addXaxisAnnotation method requires a parent class, and user calling this method externally on the chart.js instance may not specify parent, hence a different method
   addXaxisAnnotationExternal(params, pushToMemory, context) {
     this.addAnnotationExternal({
       params,

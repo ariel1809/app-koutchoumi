@@ -8,7 +8,7 @@ export function addResizeListener(el, fn) {
 
   const elRect = el.getBoundingClientRect()
   if (el.style.display === 'none' || elRect.width === 0) {
-    // if elRect.width=0, the chart is not rendered at all
+    // if elRect.width=0, the chart.js is not rendered at all
     // (it has either display none or hidden in a different tab)
     // fixes https://github.com/apexcharts/apexcharts.js/issues/2825
     // fixes https://github.com/apexcharts/apexcharts.js/issues/2991

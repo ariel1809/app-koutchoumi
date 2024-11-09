@@ -206,7 +206,7 @@ export default class TreemapChart {
 
   // This calculates a font-size based upon
   // average label length and the size of the box the label is
-  // going into. The maximum font size is set in chart config.
+  // going into. The maximum font size is set in chart.js config.
   getFontSize(coordinates) {
     const w = this.w
 

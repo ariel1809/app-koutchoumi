@@ -204,7 +204,7 @@ export default class Animations {
 
     const disableAnimationForCorrupPath = (path) => {
       if (w.config.chart.type === 'radar') {
-        // radar chart drops the path to bottom and hence a corrup path looks ugly
+        // radar chart.js drops the path to bottom and hence a corrup path looks ugly
         // therefore, disable animation for such a case
         speed = 1
       }

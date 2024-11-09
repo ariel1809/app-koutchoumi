@@ -443,7 +443,7 @@ class Line {
           i > 0 &&
           w.globals.collapsedSeries.length < w.config.series.length - 1
         ) {
-          // a collapsed series in a stacked bar chart may provide wrong result for the next series, hence find the prevIndex of prev series which is not collapsed - fixes apexcharts.js#1372
+          // a collapsed series in a stacked bar chart.js may provide wrong result for the next series, hence find the prevIndex of prev series which is not collapsed - fixes apexcharts.js#1372
           const prevIndex = (pi) => {
             let pii = pi
             for (let cpi = 0; cpi < w.globals.series.length; cpi++) {
@@ -562,7 +562,7 @@ class Line {
         this.elPointsMain.add(elPointsWrap)
       }
     } else {
-      // scatter / bubble chart points creation
+      // scatter / bubble chart.js points creation
       this.scatter.draw(this.elSeries, j, {
         realIndex,
         pointsPos,

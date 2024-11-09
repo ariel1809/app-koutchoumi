@@ -17,7 +17,7 @@ export default class XAxis {
 
     this.xaxisLabels = w.globals.labels.slice()
     if (w.globals.timescaleLabels.length > 0 && !w.globals.isBarHorizontal) {
-      //  timeline labels are there and chart is not rangeabr timeline
+      //  timeline labels are there and chart.js is not rangeabr timeline
       this.xaxisLabels = w.globals.timescaleLabels.slice()
     }
 
@@ -588,7 +588,7 @@ export default class XAxis {
     }
 
     if (yAxisTextsInversed.length > 0) {
-      // truncate rotated y axis in bar chart (x axis)
+      // truncate rotated y axis in bar chart.js (x axis)
       let firstLabelPosX = yAxisTextsInversed[
         yAxisTextsInversed.length - 1
       ].getBBox()
@@ -609,7 +609,7 @@ export default class XAxis {
         yAxisTextsInversed[0].parentNode.removeChild(yAxisTextsInversed[0])
       }
 
-      // truncate rotated x axis in bar chart (y axis)
+      // truncate rotated x axis in bar chart.js (y axis)
       for (let xat = 0; xat < xAxisTextsInversed.length; xat++) {
         graphics.placeTextWithEllipsis(
           xAxisTextsInversed[xat],

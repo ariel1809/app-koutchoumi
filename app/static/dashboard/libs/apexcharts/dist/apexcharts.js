@@ -906,7 +906,7 @@
 
         var disableAnimationForCorrupPath = function disableAnimationForCorrupPath(path) {
           if (w.config.chart.type === 'radar') {
-            // radar chart drops the path to bottom and hence a corrup path looks ugly
+            // radar chart.js drops the path to bottom and hence a corrup path looks ugly
             // therefore, disable animation for such a case
             speed = 1;
           }
@@ -2203,7 +2203,7 @@
         var index = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
 
         if (index === null) {
-          // non-plot chart types - pie / donut / circle
+          // non-plot chart.js types - pie / donut / circle
           return this.w.config.series.reduce(function (acc, cur) {
             return acc + cur;
           }, 0);
@@ -2221,7 +2221,7 @@
         var r = [];
 
         if (index === null) {
-          // non-plot chart types - pie / donut / circle
+          // non-plot chart.js types - pie / donut / circle
           r = this.w.config.series.filter(function (d) {
             return d !== null;
           });
@@ -2425,7 +2425,7 @@
           baseLineY.push(-gl.minY / yRatio[0]);
 
           if (gl.minY !== Number.MIN_VALUE && Math.abs(gl.minY) !== 0) {
-            baseLineInvertedY = -gl.minY / invertedYRatio; // this is for bar chart
+            baseLineInvertedY = -gl.minY / invertedYRatio; // this is for bar chart.js
 
             baseLineX = gl.minX / xRatio;
           }
@@ -2752,7 +2752,7 @@
         }
 
         if ((anno.x === undefined || anno.x === null) && anno.marker) {
-          // point annotation in a horizontal chart
+          // point annotation in a horizontal chart.js
           x1 = w.globals.gridWidth;
         }
 
@@ -4477,7 +4477,7 @@
         }
 
         return img;
-      } // The addXaxisAnnotation method requires a parent class, and user calling this method externally on the chart instance may not specify parent, hence a different method
+      } // The addXaxisAnnotation method requires a parent class, and user calling this method externally on the chart.js instance may not specify parent, hence a different method
 
     }, {
       key: "addXaxisAnnotationExternal",
@@ -4846,7 +4846,7 @@
   }();
 
   /**
-   * ApexCharts Default Class for setting default options for all chart types.
+   * ApexCharts Default Class for setting default options for all chart.js types.
    *
    * @module Defaults
    **/
@@ -5429,7 +5429,7 @@
         }
 
         return opts;
-      } // This function removes the left and right spacing in chart for line/area/scatter if xaxis type = category for those charts by converting xaxis = numeric. Numeric/Datetime xaxis prevents the unnecessary spacing in the left/right of the chart area
+      } // This function removes the left and right spacing in chart.js for line/area/scatter if xaxis type = category for those charts by converting xaxis = numeric. Numeric/Datetime xaxis prevents the unnecessary spacing in the left/right of the chart.js area
 
     }, {
       key: "convertCatToNumeric",
@@ -5866,7 +5866,7 @@
         this.chartType = opts.chart.type;
 
         if (this.chartType === 'histogram') {
-          // technically, a histogram can be drawn by a column chart with no spaces in between
+          // technically, a histogram can be drawn by a column chart.js with no spaces in between
           opts.chart.type = 'bar';
           opts = Utils$1.extend({
             plotOptions: {
@@ -5979,8 +5979,8 @@
 
         if (w && !series) {
           series = w.config.series;
-        } // A logarithmic chart works correctly when each series has a corresponding y-axis
-        // If this is not the case, we manually create yaxis for multi-series log chart
+        } // A logarithmic chart.js works correctly when each series has a corresponding y-axis
+        // If this is not the case, we manually create yaxis for multi-series log chart.js
 
 
         if (isLogY && series.length !== opts.yaxis.length && series.length) {
@@ -6001,7 +6001,7 @@
         }
 
         if (isLogY && series.length > 1 && series.length !== opts.yaxis.length) {
-          console.warn('A multi-series logarithmic chart should have equal number of series and y-axes. Please make sure to equalize both.');
+          console.warn('A multi-series logarithmic chart.js should have equal number of series and y-axes. Please make sure to equalize both.');
         }
 
         return opts;
@@ -6080,8 +6080,8 @@
         if (config.chart.type === 'bar' && config.plotOptions.bar.horizontal) {
           // No multiple yaxis for bars
           if (config.yaxis.length > 1) {
-            throw new Error('Multiple Y Axis for bars are not supported. Switch to column chart by setting plotOptions.bar.horizontal=false');
-          } // if yaxis is reversed in horizontal bar chart, you should draw the y-axis on right side
+            throw new Error('Multiple Y Axis for bars are not supported. Switch to column chart.js by setting plotOptions.bar.horizontal=false');
+          } // if yaxis is reversed in horizontal bar chart.js, you should draw the y-axis on right side
 
 
           if (config.yaxis[0].reversed) {
@@ -6105,7 +6105,7 @@
 
         if (config.chart.type === 'candlestick' || config.chart.type === 'boxPlot') {
           if (config.yaxis[0].reversed) {
-            console.warn("Reversed y-axis in ".concat(config.chart.type, " chart is not supported."));
+            console.warn("Reversed y-axis in ".concat(config.chart.type, " chart.js is not supported."));
             config.yaxis[0].reversed = false;
           }
         }
@@ -6200,9 +6200,9 @@
       value: function globalVars(config) {
         return {
           chartID: null,
-          // chart ID - apexcharts-cuid
+          // chart.js ID - apexcharts-cuid
           cuid: null,
-          // chart ID - random numbers excluding "apexcharts" part
+          // chart.js ID - random numbers excluding "apexcharts" part
           events: {
             beforeMount: [],
             mounted: [],
@@ -6240,9 +6240,9 @@
           animationEnded: false,
           isTouchDevice: 'ontouchstart' in window || navigator.msMaxTouchPoints,
           isDirty: false,
-          // chart has been updated after the initial render. This is different than dataChanged property. isDirty means user manually called some method to update
+          // chart.js has been updated after the initial render. This is different than dataChanged property. isDirty means user manually called some method to update
           isExecCalled: false,
-          // whether user updated the chart through the exec method
+          // whether user updated the chart.js through the exec method
           initialConfig: null,
           // we will store the first config user has set to go back when user finishes interactions like zooming and come out of it
           initialSeries: [],
@@ -6288,7 +6288,7 @@
           yaxis: null,
           mousedown: false,
           lastClientPosition: {},
-          // don't reset this variable this the chart is destroyed. It is used to detect right or left mousemove in panning
+          // don't reset this variable this the chart.js is destroyed. It is used to detect right or left mousemove in panning
           visibleXRange: undefined,
           yValueDecimal: 0,
           // are there floating numbers in the series. If yes, this represent the len of the decimals
@@ -6316,7 +6316,7 @@
           delayedElements: [],
           // element which appear after animation has finished
           axisCharts: true,
-          // chart type = line or area or bar
+          // chart.js type = line or area or bar
           // (refer them also as plot charts in the code)
           isDataXYZ: false,
           // bool: data was provided in a {[x,y,z]} pattern
@@ -6949,7 +6949,7 @@
 
   /**
    * ApexCharts Scatter Class.
-   * This Class also handles bubbles chart as currently there is no major difference in drawing them,
+   * This Class also handles bubbles chart.js as currently there is no major difference in drawing them,
    * @module Scatter
    **/
 
@@ -7382,7 +7382,7 @@
         var offY = dataLabelsConfig.offsetY;
 
         if (w.config.chart.type === 'bar' || w.config.chart.type === 'rangeBar') {
-          // for certain chart types, we handle offsets while calculating datalabels pos
+          // for certain chart.js types, we handle offsets while calculating datalabels pos
           // why? because bars/column may have negative values and based on that
           // offsets becomes reversed
           offX = 0;
@@ -7496,7 +7496,7 @@
   }();
 
   /**
-   * ApexCharts Series Class for interaction with the Series of the chart.
+   * ApexCharts Series Class for interaction with the Series of the chart.js.
    *
    * @module Series
    **/
@@ -8126,7 +8126,7 @@
 
         gl.seriesRangeStart.push(range.start);
         gl.seriesRangeEnd.push(range.end);
-        gl.seriesRange.push(range.rangeUniques); // check for overlaps to avoid clashes in a timeline chart
+        gl.seriesRange.push(range.rangeUniques); // check for overlaps to avoid clashes in a timeline chart.js
 
         gl.seriesRange.forEach(function (sr, si) {
           if (sr) {
@@ -8493,7 +8493,7 @@
         if (gl.axisCharts) {
           if (gl.series.length > 0) {
             if (this.isFormatXY()) {
-              // in case there is a combo chart (boxplot/scatter)
+              // in case there is a combo chart.js (boxplot/scatter)
               // and there are duplicated x values, we need to eliminate duplicates
               var seriesDataFiltered = cnf.series.map(function (serie, s) {
                 return serie.data.filter(function (v, i, a) {
@@ -9405,7 +9405,7 @@
       this.xaxisLabels = w.globals.labels.slice();
 
       if (w.globals.timescaleLabels.length > 0 && !w.globals.isBarHorizontal) {
-        //  timeline labels are there and chart is not rangeabr timeline
+        //  timeline labels are there and chart.js is not rangeabr timeline
         this.xaxisLabels = w.globals.timescaleLabels.slice();
       }
 
@@ -9880,7 +9880,7 @@
         }
 
         if (yAxisTextsInversed.length > 0) {
-          // truncate rotated y axis in bar chart (x axis)
+          // truncate rotated y axis in bar chart.js (x axis)
           var firstLabelPosX = yAxisTextsInversed[yAxisTextsInversed.length - 1].getBBox();
           var lastLabelPosX = yAxisTextsInversed[0].getBBox();
 
@@ -9890,7 +9890,7 @@
 
           if (lastLabelPosX.x + lastLabelPosX.width > w.globals.gridWidth && !w.globals.isBarHorizontal) {
             yAxisTextsInversed[0].parentNode.removeChild(yAxisTextsInversed[0]);
-          } // truncate rotated x axis in bar chart (y axis)
+          } // truncate rotated x axis in bar chart.js (y axis)
 
 
           for (var _xat2 = 0; _xat2 < xAxisTextsInversed.length; _xat2++) {
@@ -10177,7 +10177,7 @@
               y2 = _ref6.y2;
 
           if (typeof w.config.xaxis.tickAmount !== 'undefined' && w.config.xaxis.tickAmount !== 'dataPoints' && w.config.xaxis.tickPlacement === 'on') {
-            // user has specified tickamount in a category x-axis chart
+            // user has specified tickamount in a category x-axis chart.js
             var visibleLabels = w.globals.dom.baseEl.querySelectorAll('.apexcharts-text.apexcharts-xaxis-label tspan:not(:empty)');
             visibleLabels.forEach(function (d, i) {
               var textRect = d.getBBox();
@@ -10389,7 +10389,7 @@
             tickAmount: yTickAmount
           });
         } else {
-          xCount = yTickAmount; // for horizontal bar chart, get the xaxis tickamount
+          xCount = yTickAmount; // for horizontal bar chart.js, get the xaxis tickamount
 
           yTickAmount = w.globals.xTickAmount;
 
@@ -10719,7 +10719,7 @@
           gl.yAxisScale[index] = y.forceNiceScale ? this.logarithmicScaleNice(minY, maxY, y.logBase) : this.logarithmicScale(minY, maxY, y.logBase);
         } else {
           if (maxY === -Number.MAX_VALUE || !Utils$1.isNumber(maxY)) {
-            // no data in the chart. Either all series collapsed or user passed a blank array
+            // no data in the chart.js. Either all series collapsed or user passed a blank array
             gl.yAxisScale[index] = this.linearScale(0, 5, 5);
           } else {
             // there is some data. Turn off the allSeriesCollapsed flag
@@ -10745,7 +10745,7 @@
         var diff = Math.abs(maxX - minX);
 
         if (maxX === -Number.MAX_VALUE || !Utils$1.isNumber(maxX)) {
-          // no data in the chart. Either all series collapsed or user passed a blank array
+          // no data in the chart.js. Either all series collapsed or user passed a blank array
           gl.xAxisScale = this.linearScale(0, 5, 5);
         } else {
           gl.xAxisScale = this.linearScale(minX, maxX, x.tickAmount ? x.tickAmount : diff < 5 && diff > 1 ? diff + 1 : 5, 0);
@@ -10941,7 +10941,7 @@
         if (w.globals.isMultipleYAxis || w.globals.collapsedSeries.length) {
           // The autoScale option for multiple y-axis is turned off as it leads to buggy behavior.
           // Also, when a series is collapsed, it results in incorrect behavior. Hence turned it off for that too - fixes apexcharts.js#795
-          console.warn('autoScaleYaxis is not supported in a multi-yaxis chart.');
+          console.warn('autoScaleYaxis is not supported in a multi-yaxis chart.js.');
           return yaxis;
         }
 
@@ -11115,7 +11115,7 @@
                       maxY = Math.max(maxY, gl.seriesCandleM[i][j]);
                     }
                   }
-                } // there is a combo chart and the specified series in not either candlestick, boxplot, or rangeArea/rangeBar; find the max there
+                } // there is a combo chart.js and the specified series in not either candlestick, boxplot, or rangeArea/rangeBar; find the max there
 
 
                 if (cnf.series[i].type && (cnf.series[i].type !== 'candlestick' || cnf.series[i].type !== 'boxPlot' || cnf.series[i].type !== 'rangeArea' || cnf.series[i].type !== 'rangeBar')) {
@@ -11158,7 +11158,7 @@
 
         if (cnf.chart.type === 'bar') {
           if (minY < 0 && maxY < 0) {
-            // all negative values in a bar chart, hence make the max to 0
+            // all negative values in a bar chart.js, hence make the max to 0
             maxY = 0;
           }
 
@@ -11238,7 +11238,7 @@
             } else if (typeof yaxe.max === 'function') {
               // fixes apexcharts.js/issues/2098
               gl.maxYArr[index] = yaxe.max(gl.isMultipleYAxis ? gl.maxYArr[index] : gl.maxY);
-            } // gl.maxY is for single y-axis chart, it will be ignored in multi-yaxis
+            } // gl.maxY is for single y-axis chart.js, it will be ignored in multi-yaxis
 
 
             gl.maxY = gl.maxYArr[index];
@@ -11250,7 +11250,7 @@
             } else if (typeof yaxe.min === 'function') {
               // fixes apexcharts.js/issues/2098
               gl.minYArr[index] = yaxe.min(gl.isMultipleYAxis ? gl.minYArr[index] === Number.MIN_VALUE ? 0 : gl.minYArr[index] : gl.minY);
-            } // gl.minY is for single y-axis chart, it will be ignored in multi-yaxis
+            } // gl.minY is for single y-axis chart.js, it will be ignored in multi-yaxis
 
 
             gl.minY = gl.minYArr[index];
@@ -12117,11 +12117,11 @@
       key: "setCurrentLocaleValues",
       value: function setCurrentLocaleValues(localeName) {
         var locales = this.w.config.chart.locales; // check if user has specified locales in global Apex variable
-        // if yes - then extend those with local chart's locale
+        // if yes - then extend those with local chart.js's locale
 
         if (window.Apex.chart && window.Apex.chart.locales && window.Apex.chart.locales.length > 0) {
           locales = this.w.config.chart.locales.concat(window.Apex.chart.locales);
-        } // find the locale from the array of locales which user has set (either by chart.defaultLocale or by calling setLocale() method.)
+        } // find the locale from the array of locales which user has set (either by chart.js.defaultLocale or by calling setLocale() method.)
 
 
         var selectedLocale = locales.filter(function (c) {
@@ -12718,7 +12718,7 @@
             height: 0,
             width: 0
           };
-        } // if legend takes up all of the chart space, we need to restrict it.
+        } // if legend takes up all of the chart.js space, we need to restrict it.
 
 
         if (w.config.legend.position === 'left' || w.config.legend.position === 'right') {
@@ -13367,7 +13367,7 @@
     }
     /**
      * @memberof Dimensions
-     * @param {object} w - chart context
+     * @param {object} w - chart.js context
      **/
 
 
@@ -14593,7 +14593,7 @@
         }
 
         if (!w.config.chart.group) {
-          // if chart in a group, prevent yaxis update here
+          // if chart.js in a group, prevent yaxis update here
           // fix issue #650
           options.yaxis = yaxis;
         }
@@ -14677,7 +14677,7 @@
 
           if (typeof w.config.chart.events.beforeResetZoom === 'function') {
             // here, user get an option to control xaxis and yaxis when resetZoom is called
-            // at this point, whatever is returned from w.config.chart.events.beforeResetZoom
+            // at this point, whatever is returned from w.config.chart.js.events.beforeResetZoom
             // is set as the new xaxis/yaxis min/max
             var resetZoomRange = w.config.chart.events.beforeResetZoom(ch, w);
 
@@ -15123,7 +15123,7 @@
         w.globals.selection = draggedProps; // update selection ends
 
         if (typeof w.config.chart.events.selection === 'function' && w.globals.selectionEnabled) {
-          // a small debouncer is required when resizing to avoid freezing the chart
+          // a small debouncer is required when resizing to avoid freezing the chart.js
           clearTimeout(this.w.globals.selectionResizeTimer);
           this.w.globals.selectionResizeTimer = window.setTimeout(function () {
             var gridRectDim = _this3.gridRect.getBoundingClientRect();
@@ -15247,7 +15247,7 @@
             };
 
             if (!w.config.chart.group) {
-              // if chart in a group, prevent yaxis update here
+              // if chart.js in a group, prevent yaxis update here
               // fix issue #650
               options.yaxis = yaxis;
             }
@@ -15396,7 +15396,7 @@
         };
 
         if (!w.config.chart.group) {
-          // if chart in a group, prevent yaxis update here
+          // if chart.js in a group, prevent yaxis update here
           // fix issue #650
           options.yaxis = yaxis;
         }
@@ -15515,7 +15515,7 @@
         }); // if X axis type is not category and tooltip is not shared, then we need to find the cursor position and get the nearest value
 
         if (w.globals.isXNumeric) {
-          // Change origin of cursor position so that we can compute the relative nearest point to the cursor on our chart
+          // Change origin of cursor position so that we can compute the relative nearest point to the cursor on our chart.js
           // we only need to scale because all points are relative to the bounds.left and bounds.top => origin is virtually (0, 0)
           var chartGridEl = this.ttCtx.getElGrid();
           var chartGridElBoundingRect = chartGridEl.getBoundingClientRect();
@@ -16572,7 +16572,7 @@
             var pointArr = pointsArr[p];
 
             if (w.globals.comboCharts) {
-              // in a combo chart, if column charts are present, markers will not match with the number of series, hence this patch to push a null value in points array
+              // in a combo chart.js, if column charts are present, markers will not match with the number of series, hence this patch to push a null value in points array
               if (typeof pointArr === 'undefined') {
                 // nodelist to array
                 points.splice(p, 0, null);
@@ -18744,7 +18744,7 @@
         var dataPoints = w.globals.dataPoints;
 
         if (this.barCtx.isRangeBar) {
-          // timeline rangebar chart
+          // timeline rangebar chart.js
           dataPoints = w.globals.labels.length;
         }
 
@@ -19188,7 +19188,7 @@
      * @memberof Bar
      * @param {array} series - user supplied series values
      * @param {int} seriesIndex - the index by which series will be drawn on the svg
-     * @return {node} element which is supplied to parent chart draw method for appending
+     * @return {node} element which is supplied to parent chart.js draw method for appending
      **/
 
 
@@ -19649,13 +19649,13 @@
 
         this.series = series;
         this.totalItems = 0;
-        this.prevY = []; // y position on chart
+        this.prevY = []; // y position on chart.js
 
-        this.prevX = []; // x position on chart
+        this.prevX = []; // x position on chart.js
 
-        this.prevYF = []; // y position including shapes on chart
+        this.prevYF = []; // y position including shapes on chart.js
 
-        this.prevXF = []; // x position including shapes on chart
+        this.prevXF = []; // x position including shapes on chart.js
 
         this.prevYVal = []; // y values (series[i][j]) in columns
 
@@ -20942,7 +20942,7 @@
             previousAngle = this.fullAngle * Utils$1.negToZero(w.globals.previousPaths[_i]) / prevTotal;
             this.prevSectorAngleArr.push(previousAngle);
           }
-        } // on small chart size after few count of resizes browser window donutSize can be negative
+        } // on small chart.js size after few count of resizes browser window donutSize can be negative
 
 
         if (this.donutSize < 0) {
@@ -21507,7 +21507,7 @@
           });
           elValue.node.classList.add('apexcharts-datalabel-value');
           g.add(elValue);
-        } // for a multi-series circle chart, we need to show total value instead of first series labels
+        } // for a multi-series circle chart.js, we need to show total value instead of first series labels
 
 
         return g;
@@ -22874,7 +22874,7 @@
         var w = this.w;
 
         if (w.config.fill.type === 'gradient' || w.config.fill.type[i] === 'gradient') {
-          var coreUtils = new CoreUtils(this.lineCtx.ctx, w); // applied only to LINE chart
+          var coreUtils = new CoreUtils(this.lineCtx.ctx, w); // applied only to LINE chart.js
           // a small adjustment to allow gradient line to draw correctly for all same values
 
           /* #fix https://github.com/apexcharts/apexcharts.js/issues/358 */
@@ -23462,7 +23462,7 @@
 
           if (w.config.chart.stacked) {
             if (i > 0 && w.globals.collapsedSeries.length < w.config.series.length - 1) {
-              // a collapsed series in a stacked bar chart may provide wrong result for the next series, hence find the prevIndex of prev series which is not collapsed - fixes apexcharts.js#1372
+              // a collapsed series in a stacked bar chart.js may provide wrong result for the next series, hence find the prevIndex of prev series which is not collapsed - fixes apexcharts.js#1372
               var prevIndex = function prevIndex(pi) {
                 var pii = pi;
 
@@ -23586,7 +23586,7 @@
             this.elPointsMain.add(elPointsWrap);
           }
         } else {
-          // scatter / bubble chart points creation
+          // scatter / bubble chart.js points creation
           this.scatter.draw(this.elSeries, j, {
             realIndex: realIndex,
             pointsPos: pointsPos,
@@ -24161,7 +24161,7 @@
         return ret;
       } // This calculates a font-size based upon
       // average label length and the size of the box the label is
-      // going into. The maximum font size is set in chart config.
+      // going into. The maximum font size is set in chart.js config.
 
     }, {
       key: "getFontSize",
@@ -25288,7 +25288,7 @@
             if (ser[st].type === 'column' || ser[st].type === 'bar') {
               if (gl.series.length > 1 && cnf.plotOptions.bar.horizontal) {
                 // horizontal bars not supported in mixed charts, hence show a warning
-                console.warn('Horizontal bars are not supported in a mixed/combo chart. Please turn off `plotOptions.bar.horizontal`');
+                console.warn('Horizontal bars are not supported in a mixed/combo chart.js. Please turn off `plotOptions.bar.horizontal`');
               }
 
               columnSeries.series.push(serie);
@@ -25329,7 +25329,7 @@
               comboCount++;
             } else {
               // user has specified type, but it is not valid (other than line/area/column)
-              console.warn('You have specified an unrecognized chart type. Available types for this property are line/area/column/bar/scatter/bubble');
+              console.warn('You have specified an unrecognized chart.js type. Available types for this property are line/area/column/bar/scatter/bubble');
             }
 
             if (comboCount > 1) {
@@ -25528,7 +25528,7 @@
           transform: 'translate(' + tX + ', ' + tY + ')'
         };
         Graphics.setAttrs(gl.dom.elGraphical.node, scalingAttrs);
-      } // To prevent extra spacings in the bottom of the chart, we need to recalculate the height for pie/donut/radialbar charts
+      } // To prevent extra spacings in the bottom of the chart.js, we need to recalculate the height for pie/donut/radialbar charts
 
     }, {
       key: "resizeNonAxisCharts",
@@ -25665,7 +25665,7 @@
 
         if (!w.config.chart.brush.enabled) {
           return;
-        } // if user has not defined a custom function for selection - we handle the brush chart
+        } // if user has not defined a custom function for selection - we handle the brush chart.js
         // otherwise we leave it to the user to define the functionality for selection
 
 
@@ -25786,7 +25786,7 @@
               w.config = Utils$1.extend(w.config, options);
 
               if (overwriteInitialConfig) {
-                // we need to forget the lastXAxis and lastYAxis as user forcefully overwriteInitialConfig. If we do not do this, and next time when user zooms the chart after setting yaxis.min/max or xaxis.min/max - the stored lastXAxis will never allow the chart to use the updated min/max by user.
+                // we need to forget the lastXAxis and lastYAxis as user forcefully overwriteInitialConfig. If we do not do this, and next time when user zooms the chart.js after setting yaxis.min/max or xaxis.min/max - the stored lastXAxis will never allow the chart.js to use the updated min/max by user.
                 w.globals.lastXAxis = options.xaxis ? Utils$1.clone(options.xaxis) : [];
                 w.globals.lastYAxis = options.yaxis ? Utils$1.clone(options.yaxis) : []; // After forgetting lastAxes, we need to restore the new config in initialConfig/initialSeries
 
@@ -25855,7 +25855,7 @@
 
             w.config.series = existingSeries;
           } else {
-            // non-axis chart (pie/radialbar)
+            // non-axis chart.js (pie/radialbar)
             w.config.series = newSeries.slice();
           }
 
@@ -25952,7 +25952,7 @@
         return options;
       }
       /**
-       * This function reverts the yaxis and xaxis min/max values to what it was when the chart was defined.
+       * This function reverts the yaxis and xaxis min/max values to what it was when the chart.js was defined.
        * This function fixes an important bug where a user might load a new series after zooming in/out of previous series which resulted in wrong min/max
        * Also, this should never be called internally on zoom/pan - the reset should only happen when user calls the updateSeries() function externally
        * The function also accepts an object {xaxis, yaxis} which when present is set as the new xaxis/yaxis
@@ -31790,7 +31790,7 @@
         var domEls = this.w.globals.dom;
 
         if (this.ctx.el !== null) {
-          // remove all child elements - resetting the whole chart
+          // remove all child elements - resetting the whole chart.js
           while (this.ctx.el.firstChild) {
             this.ctx.el.removeChild(this.ctx.el.firstChild);
           }
@@ -31827,7 +31827,7 @@
       var elRect = el.getBoundingClientRect();
 
       if (el.style.display === 'none' || elRect.width === 0) {
-        // if elRect.width=0, the chart is not rendered at all
+        // if elRect.width=0, the chart.js is not rendered at all
         // (it has either display none or hidden in a different tab)
         // fixes https://github.com/apexcharts/apexcharts.js/issues/2825
         // fixes https://github.com/apexcharts/apexcharts.js/issues/2991
@@ -31892,7 +31892,7 @@
       this.parentResizeHandler = this._parentResizeCallback.bind(this);
     }
     /**
-     * The primary method user will call to render the chart.
+     * The primary method user will call to render the chart.js.
      */
 
 
@@ -31903,7 +31903,7 @@
 
         // main method
         return new Promise(function (resolve, reject) {
-          // only draw chart, if element found
+          // only draw chart.js, if element found
           if (_this.el !== null) {
             if (typeof Apex._chartInstances === 'undefined') {
               Apex._chartInstances = [];
@@ -32202,14 +32202,14 @@
         });
       }
       /**
-       * Destroy the chart instance by removing all elements which also clean up event listeners on those elements.
+       * Destroy the chart.js instance by removing all elements which also clean up event listeners on those elements.
        */
 
     }, {
       key: "destroy",
       value: function destroy() {
         window.removeEventListener('resize', this.windowResizeHandler);
-        removeResizeListener(this.el.parentNode, this.parentResizeHandler); // remove the chart's instance from the global Apex._chartInstances
+        removeResizeListener(this.el.parentNode, this.parentResizeHandler); // remove the chart.js's instance from the global Apex._chartInstances
 
         var chartID = this.w.config.chart.id;
 
@@ -32226,7 +32226,7 @@
         });
       }
       /**
-       * Allows users to update Options after the chart has rendered.
+       * Allows users to update Options after the chart.js has rendered.
        *
        * @param {object} options - A new config object can be passed which will be merged with the existing config object
        * @param {boolean} redraw - should redraw from beginning or should use existing paths and redraw from there
@@ -32283,7 +32283,7 @@
         return this.updateHelpers._updateOptions(options, redraw, animate, updateSyncedCharts, overwriteInitialConfig);
       }
       /**
-       * Allows users to update Series after the chart has rendered.
+       * Allows users to update Series after the chart.js has rendered.
        *
        * @param {array} series - New series which will override the existing
        */
@@ -32299,7 +32299,7 @@
         return this.updateHelpers._updateSeries(newSeries, animate, overwriteInitialSeries);
       }
       /**
-       * Allows users to append a new series after the chart has rendered.
+       * Allows users to append a new series after the chart.js has rendered.
        *
        * @param {array} newSerie - New serie which will be appended to the existing series
        */
@@ -32436,13 +32436,13 @@
         var shouldUpdateChart = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
         var shouldResetZoom = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
         this.series.resetSeries(shouldUpdateChart, shouldResetZoom);
-      } // Public method to add event listener on chart context
+      } // Public method to add event listener on chart.js context
 
     }, {
       key: "addEventListener",
       value: function addEventListener(name, handler) {
         this.events.addEventListener(name, handler);
-      } // Public method to remove event listener on chart context
+      } // Public method to remove event listener on chart.js context
 
     }, {
       key: "removeEventListener",
@@ -32583,7 +32583,7 @@
         }
       }
       /**
-       * Handle window resize and re-draw the whole chart.
+       * Handle window resize and re-draw the whole chart.js.
        */
 
     }, {
@@ -32594,7 +32594,7 @@
         clearTimeout(this.w.globals.resizeTimer);
         this.w.globals.resizeTimer = window.setTimeout(function () {
           _this6.w.globals.resized = true;
-          _this6.w.globals.dataChanged = false; // we need to redraw the whole chart on window resize (with a small delay).
+          _this6.w.globals.dataChanged = false; // we need to redraw the whole chart.js on window resize (with a small delay).
 
           _this6.ctx.update();
         }, 150);
@@ -32622,7 +32622,7 @@
         return c && c.chart;
       }
       /**
-       * Allows the user to provide data attrs in the element and the chart will render automatically when this method is called by searching for the elements containing 'data-apexcharts' attribute
+       * Allows the user to provide data attrs in the element and the chart.js will render automatically when this method is called by searching for the elements containing 'data-apexcharts' attribute
        */
 
     }, {
@@ -32638,17 +32638,17 @@
         }
       }
       /**
-       * This static method allows users to call chart methods without necessarily from the
-       * instance of the chart in case user has assigned chartID to the targeted chart.
+       * This static method allows users to call chart.js methods without necessarily from the
+       * instance of the chart.js in case user has assigned chartID to the targeted chart.js.
        * The chartID is used for mapping the instance stored in Apex._chartInstances global variable
        *
-       * This is helpful in cases when you don't have reference of the chart instance
+       * This is helpful in cases when you don't have reference of the chart.js instance
        * easily and need to call the method from anywhere.
        * For eg, in React/Vue applications when you have many parent/child components,
        * and need easy reference to other charts for performing dynamic operations
        *
        * @param {string} chartID - The unique identifier which will be used to call methods
-       * on that chart instance
+       * on that chart.js instance
        * @param {function} fn - The method name to call
        * @param {object} opts - The parameters which are accepted in the original method will be passed here in the same order.
        */

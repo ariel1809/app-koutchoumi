@@ -2,7 +2,7 @@ import Utils from '../../utils/Utils'
 import RangeBar from '../../charts/RangeBar'
 
 /**
- * ApexCharts Default Class for setting default options for all chart types.
+ * ApexCharts Default Class for setting default options for all chart.js types.
  *
  * @module Defaults
  **/
@@ -421,7 +421,7 @@ export default class Defaults {
     return opts
   }
 
-  // This function removes the left and right spacing in chart for line/area/scatter if xaxis type = category for those charts by converting xaxis = numeric. Numeric/Datetime xaxis prevents the unnecessary spacing in the left/right of the chart area
+  // This function removes the left and right spacing in chart.js for line/area/scatter if xaxis type = category for those charts by converting xaxis = numeric. Numeric/Datetime xaxis prevents the unnecessary spacing in the left/right of the chart.js area
   convertCatToNumeric(opts) {
     opts.xaxis.convertedCatToNumeric = true
 

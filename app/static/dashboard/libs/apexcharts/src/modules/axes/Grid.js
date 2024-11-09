@@ -273,7 +273,7 @@ class Grid {
         w.config.xaxis.tickAmount !== 'dataPoints' &&
         w.config.xaxis.tickPlacement === 'on'
       ) {
-        // user has specified tickamount in a category x-axis chart
+        // user has specified tickamount in a category x-axis chart.js
         const visibleLabels = w.globals.dom.baseEl.querySelectorAll(
           '.apexcharts-text.apexcharts-xaxis-label tspan:not(:empty)'
         )
@@ -442,7 +442,7 @@ class Grid {
     } else {
       xCount = yTickAmount
 
-      // for horizontal bar chart, get the xaxis tickamount
+      // for horizontal bar chart.js, get the xaxis tickamount
       yTickAmount = w.globals.xTickAmount
       this._drawInvertedXYLines({ xCount, tickAmount: yTickAmount })
     }

@@ -44,12 +44,12 @@ export default class ApexCharts {
   }
 
   /**
-   * The primary method user will call to render the chart.
+   * The primary method user will call to render the chart.js.
    */
   render() {
     // main method
     return new Promise((resolve, reject) => {
-      // only draw chart, if element found
+      // only draw chart.js, if element found
       if (this.el !== null) {
         if (typeof Apex._chartInstances === 'undefined') {
           Apex._chartInstances = []
@@ -370,13 +370,13 @@ export default class ApexCharts {
   }
 
   /**
-   * Destroy the chart instance by removing all elements which also clean up event listeners on those elements.
+   * Destroy the chart.js instance by removing all elements which also clean up event listeners on those elements.
    */
   destroy() {
     window.removeEventListener('resize', this.windowResizeHandler)
 
     removeResizeListener(this.el.parentNode, this.parentResizeHandler)
-    // remove the chart's instance from the global Apex._chartInstances
+    // remove the chart.js's instance from the global Apex._chartInstances
     const chartID = this.w.config.chart.id
     if (chartID) {
       Apex._chartInstances.forEach((c, i) => {
@@ -389,7 +389,7 @@ export default class ApexCharts {
   }
 
   /**
-   * Allows users to update Options after the chart has rendered.
+   * Allows users to update Options after the chart.js has rendered.
    *
    * @param {object} options - A new config object can be passed which will be merged with the existing config object
    * @param {boolean} redraw - should redraw from beginning or should use existing paths and redraw from there
@@ -444,7 +444,7 @@ export default class ApexCharts {
   }
 
   /**
-   * Allows users to update Series after the chart has rendered.
+   * Allows users to update Series after the chart.js has rendered.
    *
    * @param {array} series - New series which will override the existing
    */
@@ -459,7 +459,7 @@ export default class ApexCharts {
   }
 
   /**
-   * Allows users to append a new series after the chart has rendered.
+   * Allows users to append a new series after the chart.js has rendered.
    *
    * @param {array} newSerie - New serie which will be appended to the existing series
    */
@@ -563,7 +563,7 @@ export default class ApexCharts {
   }
 
   /**
-   * Allows the user to provide data attrs in the element and the chart will render automatically when this method is called by searching for the elements containing 'data-apexcharts' attribute
+   * Allows the user to provide data attrs in the element and the chart.js will render automatically when this method is called by searching for the elements containing 'data-apexcharts' attribute
    */
   static initOnLoad() {
     const els = document.querySelectorAll('[data-apexcharts]')
@@ -577,17 +577,17 @@ export default class ApexCharts {
   }
 
   /**
-   * This static method allows users to call chart methods without necessarily from the
-   * instance of the chart in case user has assigned chartID to the targeted chart.
+   * This static method allows users to call chart.js methods without necessarily from the
+   * instance of the chart.js in case user has assigned chartID to the targeted chart.js.
    * The chartID is used for mapping the instance stored in Apex._chartInstances global variable
    *
-   * This is helpful in cases when you don't have reference of the chart instance
+   * This is helpful in cases when you don't have reference of the chart.js instance
    * easily and need to call the method from anywhere.
    * For eg, in React/Vue applications when you have many parent/child components,
    * and need easy reference to other charts for performing dynamic operations
    *
    * @param {string} chartID - The unique identifier which will be used to call methods
-   * on that chart instance
+   * on that chart.js instance
    * @param {function} fn - The method name to call
    * @param {object} opts - The parameters which are accepted in the original method will be passed here in the same order.
    */
@@ -629,12 +629,12 @@ export default class ApexCharts {
     this.series.resetSeries(shouldUpdateChart, shouldResetZoom)
   }
 
-  // Public method to add event listener on chart context
+  // Public method to add event listener on chart.js context
   addEventListener(name, handler) {
     this.events.addEventListener(name, handler)
   }
 
-  // Public method to remove event listener on chart context
+  // Public method to remove event listener on chart.js context
   removeEventListener(name, handler) {
     this.events.removeEventListener(name, handler)
   }
@@ -737,7 +737,7 @@ export default class ApexCharts {
   }
 
   /**
-   * Handle window resize and re-draw the whole chart.
+   * Handle window resize and re-draw the whole chart.js.
    */
   _windowResize() {
     clearTimeout(this.w.globals.resizeTimer)
@@ -745,7 +745,7 @@ export default class ApexCharts {
       this.w.globals.resized = true
       this.w.globals.dataChanged = false
 
-      // we need to redraw the whole chart on window resize (with a small delay).
+      // we need to redraw the whole chart.js on window resize (with a small delay).
       this.ctx.update()
     }, 150)
   }

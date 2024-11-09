@@ -2,7 +2,7 @@
 // Note: When you have a class and a module with the same name; the module is merged
 // with the class.  This is necessary since apexcharts exports the main ApexCharts class only.
 //
-// This is a sparse typed declarations of chart interfaces.  See Apex Chart documentation
+// This is a sparse typed declarations of chart.js interfaces.  See Apex Chart documentation
 // for comprehensive API:  https://apexcharts.com/docs/options
 //
 // There is on-going work to provide a comprehensive typed definition for this component.
@@ -494,7 +494,7 @@ type ApexLocale = {
 }
 
 /**
- * PlotOptions for specifying chart-type-specific configuration.
+ * PlotOptions for specifying chart.js-type-specific configuration.
  * See https://apexcharts.com/docs/options/plotoptions/bar/
  */
 type ApexPlotOptions = {
