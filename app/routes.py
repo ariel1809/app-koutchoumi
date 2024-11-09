@@ -85,13 +85,23 @@ def dashboard():
     # 6. Convertir les résultats en DataFrame (dataset)
     df = pd.DataFrame(annonces, columns=column_names)
 
-    # Calculer la fréquence des appartements en fonction du nombre de chambres
-    chambre_counts = df['nb_chambres'].value_counts().sort_index()
-
     # Préparer les labels et les données pour le graphique
     indexs = df['nb_chambres'].value_counts().sort_index().index.to_list()
     values = df['nb_chambres'].value_counts().sort_index().to_list()
     labels = [str(index) + "chambre" for index in indexs]
+
+    # Récupérer les 5 appartements les plus populaires
+    popular_query = """
+       SELECT titre, nb_vues FROM annonces
+       ORDER BY nb_vues DESC
+       LIMIT 5
+       """
+    cursor.execute(popular_query)
+    popular_apartments = cursor.fetchall()
+
+    # Préparer les données pour le graphique des appartements populaires
+    popular_labels = [apt['titre'] for apt in popular_apartments]
+    popular_values = [apt['nb_vues'] for apt in popular_apartments]
 
     # Compter le nombre total d'annonces pour la pagination
     cursor.execute("SELECT COUNT(*) FROM annonces")
@@ -107,7 +117,10 @@ def dashboard():
     pagination = Pagination(page=page, per_page=per_page, total=total, css_framework='bootstrap5')
 
     # Envoyer les données et la pagination au template
-    return render_template('dashboard/index.html', annonces=annonces, pagination=pagination, apartment_counts=apartment_counts, labels=labels, values=values)
+    return render_template('dashboard/index.html', annonces=annonces, pagination=pagination, apartment_counts=apartment_counts, labels=labels, values=values,
+    popular_labels = popular_labels,
+    popular_values = popular_values
+    )
 
 @main.route('/list-apartments')
 def appartment_list():

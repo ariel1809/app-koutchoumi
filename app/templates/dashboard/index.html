@@ -211,6 +211,22 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-lg-8">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title d-flex align-items-center gap-2 mb-4">
+                                Nombre
+                                    d’appartements suivant le nombre de chambre qu’un
+                                    appartement contient
+{#                                <span>#}
+{#                                    <iconify-icon icon="solar:question-circle-bold" class="fs-7 d-flex text-muted" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip-success" data-bs-title="Traffic Overview"></iconify-icon>#}
+{#                                </span>#}
+                            </h5>
+                            <!-- Remplacer le div par un canvas -->
+                            <canvas id="popularApartmentsChart"></canvas>
+                        </div>
+                    </div>
+                </div>
                 <div class="col-lg-4">
                     <div class="card">
                         <div class="card-body text-center">
@@ -367,6 +383,46 @@
             }
         });
   </script>
+
+  <script>
+    // Données fournies par Flask pour le graphique des appartements populaires
+    const popularLabels = {{ popular_labels | tojson }};
+    const popularValues = {{ popular_values | tojson }};
+
+    // Création du graphique des appartements populaires
+    const ctx = document.getElementById('popularApartmentsChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: popularLabels,
+            datasets: [{
+                label: "Popularité",
+                data: popularValues,
+                backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Popularité'
+                    }
+                },
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Appartements'
+                    }
+                }
+            }
+        }
+    });
+</script>
 
 </body>
 
